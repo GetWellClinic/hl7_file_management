@@ -48,7 +48,7 @@ public class Uploader {
 		String URL = context.getStringProperty("oscarURL");
 
 		//String URL = "http://localhost:8084/oscar/lab/newLabUpload.do";            
-		if (URL.endsWith("oscar")){
+		/*if (URL.endsWith("oscar")){
 			URL = URL+"/lab/newLabUpload.do";
 		}else if (URL.endsWith("oscar/")){	
 			URL = URL+"lab/newLabUpload.do";
@@ -56,7 +56,7 @@ public class Uploader {
 			URL = URL+"oscar/lab/newLabUpload.do";
 		}else{
 			URL = URL+"/lab/newLabUpload.do";
-		}
+		}*/
 		LOG.debug("URL : " + URL );
 		
 		if (keyLocation.indexOf(":/") != -1){
