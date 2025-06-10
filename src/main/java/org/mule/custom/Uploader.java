@@ -129,7 +129,9 @@ public class Uploader {
 			mPost.addParameter("signature", sig);
 			mPost.addParameter("service", serviceName);
 	      
+		   	LOG.debug("Before Request to : " + URL );
 		   	int statuscode = client.executeMethod(mPost);
+		   	LOG.debug("After Request to : " + URL );
 		   	System.out.println("\nStatusLine>>>"+ mPost.getStatusLine());
 	      
 		   	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
