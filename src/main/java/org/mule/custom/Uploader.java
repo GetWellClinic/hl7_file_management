@@ -33,6 +33,7 @@ public class Uploader {
    	static int ValidationFailed = 2;
    	static int Exception = 3;
    	static int UploadFailed = 4;
+   	static int AlreadyUploaded = 5;
 
 	public void Upload(byte[] fileBytes) throws Exception{
                 LOG.info("fileBytes "+fileBytes.length);
@@ -99,6 +100,8 @@ public class Uploader {
 		
 		if(returnCode == Success){                             
 			System.out.println("file: "+fileName+", Successfully Uploaded\n");                                              
+      	}else if (returnCode == AlreadyUploaded){
+      		System.out.println("file: "+fileName+", Already Uploaded\n");                        
       	}else if (returnCode == ConnectionRefused){                        
 			throw new Exception("file: "+fileName+" could not be uploaded, Connection Refused : "+URL);
       	}else if (returnCode == ValidationFailed){                           
@@ -146,6 +149,8 @@ public class Uploader {
 		    	returnCode = this.ValidationFailed;         
 		    }else if (outcome.equals("upload failed")){
 		        returnCode = this.UploadFailed;   
+		    }else if (outcome.equals("uploaded previously")){
+		        returnCode = this.AlreadyUploaded;  
 		    }else if (outcome.equals("uploaded")){
 		        returnCode = this.Success;   
 					
